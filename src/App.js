@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>My List</h2>
+      <MyList todos={["Milk", "Jerky", "Maybe sleep"]} />
     </div>
   );
 }
+
+var MyList = (props) => {
+  var onListItemClick = (event) => {
+    console.log("I got clicked");
+  };
+
+  return (
+    <ul>
+      <li onClick={onListItemClick}>{props.todos[0]}</li>
+      <li>{props.todos[1]}</li>
+      <li>{props.todos[2]}</li>
+    </ul>
+  );
+};
 
 export default App;
